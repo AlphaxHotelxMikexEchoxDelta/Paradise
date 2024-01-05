@@ -15,8 +15,20 @@ public class Paradise extends Hotel /*implements MethodsHotel*/ {
         return "Reservation effectuer" ;
     }
     public String adandonReservation(Chambre chambre,Client client){
-        //...........................
+        //
         return "Réservation annuler";
+    }
+    public String modificationReservation(Chambre chambre,Client client){
+        //
+        return "Réservation modifier";
+    }
+    public String supprimerReservation(Chambre chambre, Client client){
+        //
+        return "Réservation supprimer";
+    }
+    public String commanderUnRepas(Repas repas){
+        //
+        return "Repas commander";
     }
 
     public HashMap<Chambre, Client> getReservations() {
@@ -26,4 +38,5 @@ public class Paradise extends Hotel /*implements MethodsHotel*/ {
     public void setReservations(HashMap<Chambre, Client> reservations) {
         this.reservations = reservations;
     }
+
 }
