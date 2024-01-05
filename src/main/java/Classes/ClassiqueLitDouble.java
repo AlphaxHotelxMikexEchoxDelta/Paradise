@@ -2,7 +2,7 @@ package Classes;
 
 public class ClassiqueLitDouble extends Chambre {
     private int prix;
-    public ChambreClassiqueLitDouble(int nbChambre,int id,boolean occupe,int prix){
+    public ClassiqueLitDouble(int nbChambre,int id,boolean occupe,int prix){
         super(nbChambre,id,occupe);
         this.prix=prix;
     }
