@@ -1,8 +1,8 @@
 package Classes;
 
-public class ChambreClassiqueLitSimple extends Chambre {
+public class ClassiqueLitSimple extends Chambre {
     private int prix;
-    public ChambreClassiqueLitSimple(int nbChambre,int id,boolean occupe,int prix){
+    public ClassiqueLitSimple(int nbChambre,int id,boolean occupe,int prix){
         super(nbChambre,id,occupe);
         this.prix=prix;
     }
