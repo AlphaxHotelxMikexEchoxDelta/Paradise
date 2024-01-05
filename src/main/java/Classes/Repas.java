@@ -39,8 +39,8 @@ public enum Repas {FormuleContinentale(1,"Formule continentale","_Pain frais, cr
     }
 
     @Override
-    public String toString() {
-        return nomMenue+"\n"+menu+"\n_prix: "+prix+" € par personne";
+     public String toString() {
+        return nomMenue+"\n"+menu+"\n_Prix: "+prix+" € par personne";
     }
 }
 
