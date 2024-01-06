@@ -20,17 +20,16 @@ public class HelloApplication extends Application implements Serializable {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 710, 510);
+        Scene scene = new Scene(fxmlLoader.load(), 899, 585);
         stage.setTitle("Paradise Hotel");
 
         stage.setScene(scene);
         stage.show();
 
-
-
     }
 
-    public static void main(String[] args) {
+    private static void Paridise(){
+
         ArrayList<Chambre> chambres = new ArrayList<Chambre>();
 
         for(int i=0;i<=19;i++){
@@ -60,6 +59,15 @@ public class HelloApplication extends Application implements Serializable {
                 )
 
         );
+
+    }
+
+    public static void main(String[] args) {
+
+        if( Serialisation.getObject() == null ){
+            Paridise() ;
+        }
+
         launch();
         Serialisation.putObject(HelloController.paradise);
     }

@@ -1,19 +1,14 @@
 package com.example.paradise;
 
 import Classes.chambres.Chambre;
-import Classes.hotel.Client;
-import Classes.hotel.Facture;
-import Classes.hotel.Paradise;
-import Classes.hotel.Reservation;
+import Classes.hotel.*;
 import Classes.sauvegarde.Serialisation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import javax.net.ssl.SSLContext;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -197,6 +192,10 @@ public class HelloController implements Serializable {
         int prix = 0 ;
         int pupu = Integer.parseInt(RRR2.getText()) ;
 
+        /*if(factures.getLast() != null){
+            factures.remove( factures.getLast() ) ;
+        }*/
+
         for( Facture f : factures ){
             System.out.println(f.getCompte()+" "+f.getId());
             if( f.getId() == pupu ){
@@ -206,18 +205,88 @@ public class HelloController implements Serializable {
             }
         }
 
-        if(factures.getLast() != null){
-            factures.remove( factures.getLast() ) ;
-        }
-
         resulta_extras3.setText( " [id reservation "+pupu+"] total a payer est de: "+prix+"€" );
 
         Serialisation.putObject(paradise);
         paradise = Serialisation.getObject();
 
+    }
+
+
+    @FXML private ListView<Object> liste_repas ;
+    @FXML private TextField LLL, LLL1 ;
+
+    @FXML
+    public void commanderRepas(){
+
+        int yyyy = Integer.parseInt(LLL.getText());
+        int oooo = Integer.parseInt(LLL1.getText());
+
+        for( Facture f: factures ){
+            if( f.getId() == oooo ){
+
+                switch(yyyy-1){
+                    case 1:
+                        f.addcompte(Repas.FormuleContinentale.getPrix());
+                        break;
+                    case 2:
+                        f.addcompte(Repas.PetitDejeunerAméricain.getPrix());
+                        break;
+                    case 3:
+                        f.addcompte(Repas.PetitDejeunerSanté.getPrix());
+                        break;
+                    case 4:
+                        f.addcompte(Repas.MenuduChef.getPrix());
+                        break;
+                    case 5:
+                        f.addcompte(Repas.DejeunerRapide.getPrix());
+                        break;
+                    case 6:
+                        f.addcompte(Repas.OptionVegetarienne.getPrix());
+                        break;
+                    case 7:
+                        f.addcompte(Repas.MenuGourmet.getPrix());
+                        break;
+                    case 8:
+                        f.addcompte(Repas.DinerThematique.getPrix());
+                        break;
+                    case 9:
+                        f.addcompte(Repas.DinerLeger.getPrix());
+                        break;
+                }
+
+            }
+        }
+
+
 
     }
 
+
+    @FXML
+    private void afficherRepas(){
+
+        liste_repas.getItems().clear();
+
+        ObservableList<Object> items = FXCollections.observableArrayList();
+        items.add(" ID[ "+Repas.DejeunerRapide.getType()+" ]\n\t"+Repas.DejeunerRapide.toString());
+        items.add(" ID[ "+Repas.FormuleContinentale.getType()+" ]\n\t"+Repas.FormuleContinentale.toString());
+        items.add(" ID[ "+Repas.DinerThematique.getType()+" ]\n\t"+Repas.DinerThematique.toString());
+        items.add(" ID[ "+Repas.PetitDejeunerSanté.getType()+" ]\n\t"+Repas.PetitDejeunerSanté.toString());
+        items.add(" ID[ "+Repas.OptionVegetarienne.getType()+" ]\n\t"+Repas.OptionVegetarienne.toString());
+        items.add(" ID[ "+Repas.MenuGourmet.getType()+" ]\n\t"+Repas.MenuGourmet.toString());
+        items.add(" ID[ "+Repas.MenuduChef.getType()+" ]\n\t"+Repas.MenuduChef.toString());
+        items.add(" ID[ "+Repas.DinerLeger.getType()+" ]\n\t"+Repas.DinerLeger.toString());
+        items.add(" ID[ "+Repas.PetitDejeunerAméricain.getType()+" ]\n\t"+Repas.PetitDejeunerAméricain.toString());
+
+        liste_repas.setItems(items);
+        Serialisation.putObject(paradise);
+        paradise = Serialisation.getObject();
+
+        Serialisation.putObject(paradise);
+        paradise = Serialisation.getObject();
+
+    }
 
 }
 
