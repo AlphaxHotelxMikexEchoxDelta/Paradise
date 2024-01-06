@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import javax.net.ssl.SSLContext;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.Objects;
 
 public class HelloController implements Serializable {
 
-    public static final Paradise paradise = Serialisation.getObject() ;
+    public static Paradise paradise = Serialisation.getObject() ;
     private int IDCLIENT = paradise.getIDCLIENT() ;
     private ArrayList<Reservation> reservations = paradise.getReservations() ;
     private ArrayList<Chambre> chambres = paradise.getChambres() ;
@@ -31,27 +32,41 @@ public class HelloController implements Serializable {
     @FXML
     protected void makeReservation() {
 
-        if( !client_numero.getText().isEmpty() & !client_nom.getText().isEmpty() & !client_email.getText().isEmpty() & !client_prenom.getText().isEmpty() ){
+        if( !client_numero.getText().isEmpty() & !client_nom.getText().isEmpty() & !client_email.getText().isEmpty() & !client_prenom.getText().isEmpty() ) {
             result_reservation.setVisible(true);
 
-            for( Chambre c : chambres ){
-                if( Objects.equals(c.getNbChambre(), chambre_numero.getText()) ){
-                    System.out.println(chambre_numero.getText());
+            Integer oo = Integer.parseInt(chambre_numero.getText());
+
+            if( oo > 0 || oo < 61 ){
+                if(Objects.equals(chambres.get(oo).statut(), "Occuper")){
+                    result_reservation.setText(" !!! CHAMBRE DEJA RESERVER !!! ");
+                }
+                else {
+                    reservations.add(new Reservation(
+                            chambres.get(oo).getNbChambre(),
+                            new Client(client_nom.getText(), client_prenom.getText(), client_numero.getText(), IDCLIENT, client_email.getText()),
+                            date_debut.getText(), date_fin.getText()
+                    ));
+
+                    chambres.get(oo).setStatus(true);
+
+                    result_reservation.setText("Reservation for " + client_nom.getText() + " [" + IDCLIENT + "] to the room " + chambre_numero.getText() + " have been effectuated !");
+                    IDCLIENT++;
                 }
             }
-            IDCLIENT++ ;
-            result_reservation.setText("Reservation for "+client_nom.getText()+" ["+client_numero.getText()+"] to the room "+chambre_numero.getText()+" have been effectuated !");
+            else{
+                result_reservation.setText("!!! CHAMBRES INEXISTANT !!!");
+            }
+
+
+
+
         }
         else{
-            result_reservation.setVisible(true);
             result_reservation.setText("You need to add values in all the fields !");
         }
         Serialisation.putObject(paradise);
-
-        for( Reservation r : reservations ){
-            System.out.println(r.toString());
-        }
-
+        paradise = Serialisation.getObject();
     }
 
     @FXML
@@ -61,34 +76,36 @@ public class HelloController implements Serializable {
         if( Classiquedouble.isSelected() ) {
             for( Chambre c : chambres ){
                 if(Objects.equals(c.getId(), "2")){
-                    items.add(c) ;
+                    items.add(c+"\tIDENTIFIANT POUR RESERVATION -> "+ chambres.indexOf(c) +"<-") ;
                 }
             }
         }
         if (Classiquesimple.isSelected()) {
             for( Chambre c : chambres ){
                 if(Objects.equals(c.getId(), "1")){
-                    items.add(c) ;
+                    items.add(c+"\tIDENTIFIANT POUR RESERVATION -> "+ chambres.indexOf(c) +"<-") ;
                 }
             }
         }
         if (Luxesimple.isSelected()) {
             for( Chambre c : chambres ){
                 if(Objects.equals(c.getId(), "3")){
-                    items.add(c) ;
+                    items.add(c+"\tIDENTIFIANT POUR RESERVATION -> "+ chambres.indexOf(c) +"<-") ;
                 }
             }
         }
         if (Luxedouble.isSelected()) {
             for( Chambre c : chambres ){
                 if(Objects.equals(c.getId(), "4")){
-                    items.add(c) ;
+                    items.add(c+"\tIDENTIFIANT POUR RESERVATION -> "+ chambres.indexOf(c) +"<-") ;
                 }
             }
         }
 
         liste_chambres.setItems(items);
         Serialisation.putObject(paradise);
+        paradise = Serialisation.getObject();
+
     }
 
     @FXML
@@ -99,17 +116,10 @@ public class HelloController implements Serializable {
             items.add(r) ;
         }
 
-        for( Chambre c : chambres ){
-            if(Objects.equals(c.getNbChambre(), chambre_numero.getText())){
-                System.out.println("XXXXXXXXXXXX");
-            }
-            System.out.println("YY "+c.getId());
-        }
-
-        System.out.println(chambre_numero.getText());
-
         liste_reservations.setItems(items);
         Serialisation.putObject(paradise);
+        paradise = Serialisation.getObject();
+
 
     }
 

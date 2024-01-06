@@ -4,24 +4,24 @@ import Classes.chambres.Chambre;
 import java.io.Serializable;
 
 public class Reservation implements Serializable {
-    private Chambre chambre;
+    private String IDChambre;
     private Client client;
     private String debureservation;
     private String finreservation;
 
-    public Reservation (Chambre chambre,Client client,String debureservation,String finreservation){
-        this.chambre=chambre;
+    public Reservation (String IDChambre,Client client,String debureservation,String finreservation){
+        this.IDChambre=IDChambre;
         this.client=client;
         this.debureservation=debureservation;
         this.finreservation=finreservation;
     }
 
-    public Chambre getChambre() {
-        return chambre;
+    public String getChambre() {
+        return IDChambre;
     }
 
-    public void setChambre(Chambre chambre) {
-        this.chambre = chambre;
+    public void setChambre(String chambre) {
+        this.IDChambre = chambre;
     }
 
     public Client getClient() {
@@ -50,7 +50,7 @@ public class Reservation implements Serializable {
 
     @Override
     public String toString() {
-        return "Reservation{ chambre " + chambre.getId() + ", client=" + client.getIdclient() +", debureservation=" + debureservation + ", finreservation=" + finreservation +" }";
+        return "Reservation{ chambre " + IDChambre + ", client=" + client.getIdclient() +", debureservation=" + debureservation + ", finreservation=" + finreservation +" }";
     }
 
 /*

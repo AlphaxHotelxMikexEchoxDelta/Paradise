@@ -14,6 +14,6 @@ public class LuxeLitSimple extends Chambre implements Serializable {
 
     @Override
     public String toString() {
-        return "Chambre de luxe lit simple:\t\t\t"+nbChambre+",prix: "+prix+"€\t\t"+", ["+statut()+"]";
+        return "Chambre de luxe lit simple:\tnumero chambre"+nbChambre+",prix: "+prix+"€\t\t"+", ["+statut()+"]";
     }
 }

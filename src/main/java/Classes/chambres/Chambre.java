@@ -22,6 +22,10 @@ public class Chambre implements Serializable {
         return nbChambre;
     }
 
+    public void setStatus( boolean i ){
+        this.occupe = i ;
+    }
+
     public String statut(){
         if (!this.occupe){
             return "Libre";

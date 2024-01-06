@@ -12,6 +12,6 @@ public class ClassiqueLitDouble extends Chambre implements Serializable {
 
     @Override
     public String toString() {
-        return "Chambre classique lit Double:\t\t\t"+nbChambre+",prix: "+prix+"€\t\t"+", ["+statut()+"]";
+        return "Chambre classique lit Double:\tnumero chambre"+nbChambre+",prix: "+prix+"€\t\t"+", ["+statut()+"]";
     }
 }
