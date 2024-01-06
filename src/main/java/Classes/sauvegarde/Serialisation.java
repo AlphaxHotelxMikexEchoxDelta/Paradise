@@ -1,5 +1,7 @@
-package Classes;
+package Classes.sauvegarde;
 // (Contrl + F) Changer 'Object' par votre classe
+
+import Classes.hotel.Paradise;
 
 import java.io.* ;
 
@@ -8,14 +10,14 @@ public class Serialisation
 
     private static final String filename = "sauvegarde" ;
 
-	  public static void putObject( Paradise object )
+	  public static void putObject( Paradise paradise )
     {
   		try
   		{
-        FileOutputStream file = new FileOutputStream( filename );
+        	FileOutputStream file = new FileOutputStream( filename );
   			ObjectOutputStream out = new ObjectOutputStream( file );
   			
-  			out.writeObject( object );
+  			out.writeObject( paradise );
   			
   			out.close();
   			file.close();
@@ -35,15 +37,14 @@ public class Serialisation
 			FileInputStream file = new FileInputStream( filename );
 			ObjectInputStream in = new ObjectInputStream( file );
 
-			Paradise  Object = null ;
-			Paradise object = (Paradise) in.readObject();
+			Paradise paradise = (Paradise) in.readObject();
 
 		  	in.close();
 		  	file.close();
     
 		  	System.out.println("Deserialisation\t[OK]");
     			
-          	return object ;
+          	return paradise ;
     
 		}
     	catch(IOException ex)

@@ -1,6 +1,8 @@
-package Classes;
+package Classes.hotel;
 
-public enum Repas {FormuleContinentale(1,"Formule continentale","_Pain frais, croissants, confitures, beurre\n_Jus d'orange fraîchement pressé\n_Café ou thé",10),
+import java.io.Serializable;
+
+public enum Repas implements Serializable {FormuleContinentale(1,"Formule continentale","_Pain frais, croissants, confitures, beurre\n_Jus d'orange fraîchement pressé\n_Café ou thé",10),
     PetitDejeunerAméricain(1,"Petit Déjeuner Américain","_Œufs brouillés ou au plat\n_Bacon ou saucisses\n_Pommes de terre rissolées\n_Pain grillé\n_Jus de fruits\n_Café ou thé",15),
     PetitDejeunerSanté(1,"Petit Déjeuner Santé","_Yaourt nature avec des fruits frais\n_Muesli ou granola\n_Smoothie aux fruits\n_Pain complet ou bagel\n_Café ou thé",12),
     MenuduChef(2,"Menu du Chef","_Entrée : Salade de chèvre chaud\n_Plat principal : Filet de saumon grillé avec riz pilaf et légumes\n_Dessert : Tarte au citron",25),

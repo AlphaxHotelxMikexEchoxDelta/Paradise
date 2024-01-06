@@ -1,9 +1,9 @@
-package Classes;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
+package Classes.hotel;
+import Classes.chambres.Chambre;
 
-public class Reservation {
+import java.io.Serializable;
+
+public class Reservation implements Serializable {
     private Chambre chambre;
     private Client client;
     private String debureservation;

@@ -1,4 +1,6 @@
-package Classes;
+package Classes.hotel;
+
+import Classes.chambres.Chambre;
 
 import java.util.ArrayList;
 

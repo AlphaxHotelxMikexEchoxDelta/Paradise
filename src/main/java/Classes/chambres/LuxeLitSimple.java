@@ -1,8 +1,12 @@
-package Classes;
+package Classes.chambres;
 
-public class LuxeLitSimple extends Chambre {
+import Classes.chambres.Chambre;
+
+import java.io.Serializable;
+
+public class LuxeLitSimple extends Chambre implements Serializable {
     private int prix;
-    public LuxeLitSimple (int nbChambre,int id,boolean occupe,int prix){
+    public LuxeLitSimple (String nbChambre,String id,boolean occupe,int prix){
         super(nbChambre,id,occupe);
         this.prix=prix;
     }

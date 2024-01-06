@@ -1,8 +1,10 @@
-package Classes;
+package Classes.chambres;
 
-public class ClassiqueLitDouble extends Chambre {
+import java.io.Serializable;
+
+public class ClassiqueLitDouble extends Chambre implements Serializable {
     private int prix;
-    public ClassiqueLitDouble(int nbChambre,int id,boolean occupe,int prix){
+    public ClassiqueLitDouble(String nbChambre,String id,boolean occupe,int prix){
         super(nbChambre,id,occupe);
         this.prix=prix;
     }
