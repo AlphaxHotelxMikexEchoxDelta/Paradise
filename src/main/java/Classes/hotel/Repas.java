@@ -24,6 +24,7 @@ public enum Repas implements Serializable {FormuleContinentale(1,"Formule contin
         this.prix=prix;
     }
 
+
     public int getType() {
         return type;
     }

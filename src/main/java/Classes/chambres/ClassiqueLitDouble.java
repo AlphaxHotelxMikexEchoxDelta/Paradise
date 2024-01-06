@@ -9,6 +9,10 @@ public class ClassiqueLitDouble extends Chambre implements Serializable {
         this.prix=prix;
     }
 
+    @Override
+    public int getPrix() {
+        return prix;
+    }
 
     @Override
     public String toString() {

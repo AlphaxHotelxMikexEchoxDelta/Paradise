@@ -53,6 +53,12 @@ public class Reservation implements Serializable {
         return "Reservation{ chambre " + IDChambre + ", client=" + client.getIdclient() +", debureservation=" + debureservation + ", finreservation=" + finreservation +" }";
     }
 
+    public void mod(String IDChambre,String debureservation,String finreservation){
+        this.IDChambre = IDChambre;
+        this.debureservation=debureservation;
+        this.finreservation=finreservation;
+    }
+
 /*
     public static Date choixdujour(Scanner scan, Calendar calendar){
         System.out.print("Year: ");

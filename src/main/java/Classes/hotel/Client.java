@@ -8,7 +8,7 @@ public class Client implements Serializable {
     private String numero;
     private int idclient;
     private String email ;
-    public Client(String nom,String prenom,String numero,int idclient,String email){
+    public Client(String nom, String prenom, String numero, int idclient, String email ){
         this.nom=nom;
         this.prenom=prenom;
         this.numero=numero;

@@ -26,6 +26,8 @@ public class Chambre implements Serializable {
         this.occupe = i ;
     }
 
+    public int getPrix() { return 0 ; }
+
     public String statut(){
         if (!this.occupe){
             return "Libre";
