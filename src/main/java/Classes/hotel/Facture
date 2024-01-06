@@ -1,1 +1,24 @@
+package Hotel;
 
+public class Facture {
+    int id;
+    int compte;
+
+    public Facture(int id;int compte) {
+        this.id = id;
+        this.compte=0;
+    }
+    public int addcompte(int prix){
+        compte+=prix;
+        return compte;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "le client doit payer: "+compte;
+    }
+}
