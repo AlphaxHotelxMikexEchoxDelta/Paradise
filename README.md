@@ -65,11 +65,7 @@ _(N'oubliez pas d'installez Java 21, et JAVAFX, sans eux l'application n'est pas
 
 ### Lancer le programme sur [IntelliJ](https://www.jetbrains.com/idea/)
 
-<<<<<<< HEAD
-![Alt text](image.png)
-=======
 ![Alt text](https://github.com/AlphaxHotelxMikexEchoxDelta/Paradise/assets/95902084/23e75c22-8802-4987-b64b-963c1b19eeb5)
->>>>>>> 813301d6d8f5b51b1660932971e23d69ac2c56b8
 
 ### Lancer sur un terminal
 
