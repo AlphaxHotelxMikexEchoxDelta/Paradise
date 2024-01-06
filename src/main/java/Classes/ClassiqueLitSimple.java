@@ -10,6 +10,6 @@ public class ClassiqueLitSimple extends Chambre {
 
     @Override
     public String toString() {
-        return "Chambre classique lit simple: "+nbChambre+",prix: "+prix+"€"+", statut: "+statut(occupe);
+        return "Chambre classique lit simple:\t\t\t"+nbChambre+",prix: "+prix+"€\t\t"+", ["+statut()+"]";
     }
 }

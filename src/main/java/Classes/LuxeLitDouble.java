@@ -10,6 +10,6 @@ public class LuxeLitDouble extends Chambre {
 
     @Override
     public String toString() {
-        return "Chambre de luxe lit double: "+nbChambre+",prix: "+prix+"€"+", statut: "+statut(occupe);
+        return "Chambre de luxe lit double:\t\t\t"+nbChambre+",prix: "+prix+"€\t\t"+", ["+statut()+"]";
     }
 }

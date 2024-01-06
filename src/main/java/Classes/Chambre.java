@@ -17,8 +17,8 @@ public class Chambre {
         return id;
     }
 
-    public String statut(boolean occupe){
-        if (occupe==true){
+    public String statut(){
+        if (!this.occupe){
             return "Libre";
         }
         else{

@@ -3,18 +3,57 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class reservation {
+public class Reservation {
     private Chambre chambre;
     private Client client;
-    //private Date debureservation;
-    private Date finreservation;
-    public reservation (Chambre chambre,Client client,Date debureservation,Date finreservation){
+    private String debureservation;
+    private String finreservation;
+
+    public Reservation (Chambre chambre,Client client,String debureservation,String finreservation){
         this.chambre=chambre;
         this.client=client;
-        //this.debureservation=debureservation;
+        this.debureservation=debureservation;
         this.finreservation=finreservation;
     }
 
+    public Chambre getChambre() {
+        return chambre;
+    }
+
+    public void setChambre(Chambre chambre) {
+        this.chambre = chambre;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public String getDebureservation() {
+        return debureservation;
+    }
+
+    public void setDebureservation(String debureservation) {
+        this.debureservation = debureservation;
+    }
+
+    public String getFinreservation() {
+        return finreservation;
+    }
+
+    public void setFinreservation(String finreservation) {
+        this.finreservation = finreservation;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{ chambre " + chambre.getId() + ", client=" + client.getIdclient() +", debureservation=" + debureservation + ", finreservation=" + finreservation +" }";
+    }
+
+/*
     public static Date choixdujour(Scanner scan, Calendar calendar){
         System.out.print("Year: ");
         int year = scan.nextInt();
@@ -49,7 +88,7 @@ public class reservation {
         return calendar.getTime();
     }
     //il faut les mettre dans le main pour que les methodes fonctionnes 
-    /*Calendar calendar= Calendar.getInstance();
+    Calendar calendar= Calendar.getInstance();
     SimpleDateFormat dateFormatter = new SimpleDateFormat("d MMMM y à H:mm");
     Scanner scan = new Scanner(System.in);*/
 }
