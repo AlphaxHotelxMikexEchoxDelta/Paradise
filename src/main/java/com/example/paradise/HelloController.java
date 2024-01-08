@@ -24,7 +24,7 @@ public class HelloController implements Serializable {
     @FXML private TextField chambre_numero1, date_debut1, date_fin1, RRR1, chambre_numero2 ;
     @FXML private Label result_reservation, resulta_extras, resulta_extras2, resulta_extras3 ;
     @FXML private ListView<Object> liste_chambres = new ListView<Object>() ;
-    @FXML private ArrayList<Facture> factures = new ArrayList<Facture>();
+    @FXML private ArrayList<Facture> factures = paradise.getFactures() ;
     @FXML private CheckBox Classiquedouble, Classiquesimple, Luxedouble, Luxesimple ;
     @FXML private ListView<Object> liste_reservations = new ListView<Object>() ;
     @FXML private TextField RRR, MMM, RRR2 ;
@@ -42,8 +42,6 @@ public class HelloController implements Serializable {
             chambres.get(yy).setStatus(false);
             chambres.get(pp).setStatus(true);
 
-
-
             reservations.get(uu).mod( chambre_numero1.getText(), date_debut1.getText(), date_fin1.getText() );
             resulta_extras2.setText("!!! RESERVATIONS MODIFIER !!! ");
 
@@ -51,9 +49,6 @@ public class HelloController implements Serializable {
         else{
             resulta_extras.setText("!!! RESERVATIONS INEXISTANTS !!! ");
         }
-
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
 
     }
 
@@ -92,8 +87,6 @@ public class HelloController implements Serializable {
         else{
             result_reservation.setText("You need to add values in all the fields !");
         }
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
     }
 
 
@@ -124,14 +117,12 @@ public class HelloController implements Serializable {
             resulta_extras.setText("!!! RESERVATIONS INEXISTANTS !!! ");
         }
 
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
-
     }
 
 
     @FXML
     public void rechercherChambre() {
+
         ObservableList<Object> items = FXCollections.observableArrayList();
 
         if( Classiquedouble.isSelected() ) {
@@ -164,8 +155,6 @@ public class HelloController implements Serializable {
         }
 
         liste_chambres.setItems(items);
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
 
     }
 
@@ -180,9 +169,6 @@ public class HelloController implements Serializable {
         }
 
         liste_reservations.setItems(items);
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
-
 
     }
 
@@ -192,9 +178,9 @@ public class HelloController implements Serializable {
         int prix = 0 ;
         int pupu = Integer.parseInt(RRR2.getText()) ;
 
-        /*if(factures.getLast() != null){
+        if(factures.size() != reservations.size()){
             factures.remove( factures.getLast() ) ;
-        }*/
+        }
 
         for( Facture f : factures ){
             System.out.println(f.getCompte()+" "+f.getId());
@@ -206,9 +192,6 @@ public class HelloController implements Serializable {
         }
 
         resulta_extras3.setText( " [id reservation "+pupu+"] total a payer est de: "+prix+"€" );
-
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
 
     }
 
@@ -258,8 +241,6 @@ public class HelloController implements Serializable {
             }
         }
 
-
-
     }
 
 
@@ -280,13 +261,19 @@ public class HelloController implements Serializable {
         items.add(" ID[ "+Repas.PetitDejeunerAméricain.getType()+" ]\n\t"+Repas.PetitDejeunerAméricain.toString());
 
         liste_repas.setItems(items);
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
-
-        Serialisation.putObject(paradise);
-        paradise = Serialisation.getObject();
 
     }
+
+    @FXML private Button QUITTER ;
+    @FXML
+    private void quit() {
+
+        Serialisation.putObject(HelloController.paradise);
+
+        System.out.println("Exiting the application");
+        HelloApplication.quit();
+    }
+
 
 }
 

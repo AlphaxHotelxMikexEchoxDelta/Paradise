@@ -17,7 +17,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <TabPane prefHeight="510.0" prefWidth="710.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="506.0" prefWidth="859.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Reserver">
             <content>
@@ -132,6 +132,7 @@
             </Tab>
         </tabs>
       </TabPane>
+      <Button fx:id="QUITTER" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="25.0" prefWidth="102.0" text="QUITTER APP" />
    </children>
    <effect>
       <Bloom threshold="1.0" />

@@ -33,14 +33,14 @@ public class Initialisation implements Serializable {
         ArrayList<Reservation> reservations = new ArrayList<Reservation>() ;
 
 
-        Serialisation.putObject(
+        /*Serialisation.putObject(
 
                 new Paradise(
                         "TheParadise", 4, chambres.size(),
                         chambres, reservations, 0
                 )
 
-        );
+        );*/
 
 
     }

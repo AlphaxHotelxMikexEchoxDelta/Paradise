@@ -1,21 +1,23 @@
 package com.example.paradise;
 
 import Classes.chambres.*;
+import Classes.hotel.Facture;
 import Classes.hotel.Paradise;
 import Classes.hotel.Reservation;
 import Classes.sauvegarde.Serialisation;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class HelloApplication extends Application implements Serializable {
+
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -49,13 +51,14 @@ public class HelloApplication extends Application implements Serializable {
             chambres.add(new ClassiqueLitSimple(o,"4",false,110));
         }
         ArrayList<Reservation> reservations = new ArrayList<Reservation>() ;
+        ArrayList<Facture> factures = new ArrayList<Facture>() ;
 
 
         Serialisation.putObject(
 
                 new Paradise(
                         "TheParadise", 4, chambres.size(),
-                        chambres, reservations, 0
+                        chambres, reservations, 0, factures
                 )
 
         );
@@ -65,10 +68,20 @@ public class HelloApplication extends Application implements Serializable {
     public static void main(String[] args) {
 
         if( Serialisation.getObject() == null ){
-            Paridise() ;
+            Paridise();
         }
 
+
+        System.out.println(HelloController.paradise.getChambres().get(20));
+        System.out.println(HelloController.paradise.getChambres().get(21));
+
         launch();
-        Serialisation.putObject(HelloController.paradise);
+
     }
+
+    public static void quit() {
+        Platform.exit();
+        System.exit(0);
+    }
+
 }

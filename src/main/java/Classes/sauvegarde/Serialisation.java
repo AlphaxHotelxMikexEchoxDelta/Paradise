@@ -14,7 +14,7 @@ public class Serialisation
     {
   		try
   		{
-        	FileOutputStream file = new FileOutputStream( filename );
+        	FileOutputStream file = new FileOutputStream( filename, false );
   			ObjectOutputStream out = new ObjectOutputStream( file );
   			
   			out.writeObject( paradise );

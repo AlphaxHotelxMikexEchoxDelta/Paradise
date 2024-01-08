@@ -11,13 +11,20 @@ public class Paradise extends Hotel implements MethodsHotel, Serializable {
     private ArrayList<Chambre> chambres ;
     private int IDCLIENT = 0 ;
 
-    public Paradise(String nom, int nbEtoile, int nbChambre, ArrayList<Chambre> chambres, ArrayList<Reservation> reservations, int IDCLIENT) {
+    private ArrayList<Facture> factures ;
+
+    public Paradise(String nom, int nbEtoile, int nbChambre, ArrayList<Chambre> chambres, ArrayList<Reservation> reservations, int IDCLIENT, ArrayList<Facture> factures) {
         super(nom, nbEtoile, nbChambre, chambres);
         this.reservations = reservations;
         this.chambres = chambres;
+        this.factures = factures ;
         if( IDCLIENT != 0 ){
             this.IDCLIENT = IDCLIENT ;
         }
+    }
+
+    public ArrayList<Facture> getFactures() {
+        return factures;
     }
 
     public int getIDCLIENT() {
