@@ -40,15 +40,15 @@ public class HelloApplication extends Application implements Serializable {
         }
         for(int i=20;i<=40;i++){
             String o = String.valueOf(i) ;
-            chambres.add(new ClassiqueLitSimple(o,"2",false,70));
+            chambres.add(new ClassiqueLitDouble(o,"2",false,70));
         }
         for (int i=100;i<=109;i++){
             String o = String.valueOf(i) ;
-            chambres.add(new ClassiqueLitSimple(o,"3",false,100));
+            chambres.add(new LuxeLitSimple(o,"3",false,100));
         }
         for(int i=110;i<=120;i++){
             String o = String.valueOf(i) ;
-            chambres.add(new ClassiqueLitSimple(o,"4",false,110));
+            chambres.add(new LuxeLitDouble(o,"4",false,110));
         }
         ArrayList<Reservation> reservations = new ArrayList<Reservation>() ;
         ArrayList<Facture> factures = new ArrayList<Facture>() ;
